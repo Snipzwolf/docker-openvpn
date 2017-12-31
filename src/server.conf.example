@@ -1,0 +1,41 @@
+proto udp
+port 1094
+dev tun0
+
+ca /etc/openvpn/server/certs/ca.crt
+cert /etc/openvpn/server/certs/server.crt
+key /etc/openvpn/server/certs/server.key
+crl-verify /etc/openvpn/server/certs/crl.pem
+dh /etc/openvpn/server/certs/dh4096.pem
+
+cipher AES-256-CBC
+auth SHA512
+tls-cipher DHE-RSA-AES256-SHA
+tls-auth /etc/openvpn/server/certs/ta.key 0
+
+server 10.8.8.0 255.255.255.0
+
+client-config-dir /etc/openvpn/routes
+
+ifconfig-pool-persist /etc/openvpn/server/ipp.txt
+keepalive 10 60
+
+# Compress data to save bandwidth
+comp-lzo
+user openvpn
+group openvpn
+persist-key
+persist-tun
+
+# Uncomment this directive if multiple clients
+# might connect with the same certificate/key
+# files or common names.  This is recommended
+# only for testing purposes.  For production use,
+# each client should have its own certificate/key
+# pair.
+;duplicate-cn
+
+# Logs are useful for debugging
+# log-append openvpn-log
+verb 3
+mute 10
