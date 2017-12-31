@@ -2,16 +2,16 @@ proto udp
 port 1094
 dev tun0
 
-ca /etc/openvpn/server/certs/ca.crt
-cert /etc/openvpn/server/certs/server.crt
-key /etc/openvpn/server/certs/server.key
-crl-verify /etc/openvpn/server/certs/crl.pem
-dh /etc/openvpn/server/certs/dh4096.pem
+ca /etc/openvpn/server/certs/keys/ca.crt
+cert /etc/openvpn/server/certs/keys/server.crt
+key /etc/openvpn/server/certs/keys/server.key
+crl-verify /etc/openvpn/server/certs/keys/crl.pem
+dh /etc/openvpn/server/certs/keys/dh4096.pem
 
 cipher AES-256-CBC
 auth SHA512
 tls-cipher DHE-RSA-AES256-SHA
-tls-auth /etc/openvpn/server/certs/ta.key 0
+tls-auth /etc/openvpn/server/certs/keys/ta.key 0
 
 server 10.8.8.0 255.255.255.0
 

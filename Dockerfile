@@ -10,7 +10,8 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists/*
 
 ADD src/entrypoint.sh /opt/entrypoint.sh
-ADD src/server.conf* /etc/openvpn/
+ADD src/server.conf /etc/openvpn/
+ADD src/*.example /etc/openvpn/example/
 
 RUN mkdir /etc/openvpn/routes && \
     touch /etc/openvpn/routes/DEFAULT && \
