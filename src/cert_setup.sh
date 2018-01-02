@@ -27,7 +27,7 @@ for ((certNumber=1; certNumber <= $CLIENT_CERTS; certNumber++)){
   ./pkitool $CLIENT_NAME;
 }
 
-./revoke-full does_not_exist #this will fail but create crl.pem
+./revoke-full does_not_exist #this will fail but creates crl.pem
 
 cd keys;
 openvpn --genkey --secret ta.key;
