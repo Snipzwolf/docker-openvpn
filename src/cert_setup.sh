@@ -37,7 +37,7 @@ cp $SERVER_CN.crt $SERVER_CN.key ca.crt df*.pem ta.key crl.pem /etc/openvpn/serv
 if [ $CLIENT_CERTS > 0 ]; then
   mkdir -p /etc/openvpn/server/clients;
   CLIENT_CERT_WILDCARD=`echo $CLIENT_CN_TEMPLATE | sed -e "s/@@/*/g"`;
-  cp $CLIENT_CERT_WILDCARD.crt $CLIENT_CERT_WILDCARD.key ca.crt df*.pem ta.key /etc/openvpn/server/clients/
+  cp $CLIENT_CERT_WILDCARD.crt $CLIENT_CERT_WILDCARD.key ca.crt dh*.pem ta.key /etc/openvpn/server/clients/
 fi
 
 touch /etc/openvpn/server/certs_setup;
