@@ -22,7 +22,7 @@ All the options below are optional however without any the container will fail t
 # Environment Variables
 
 Name | Description | Default Value
---- | --- |  
+--- | --- | ---
 OPENVPN_USERNAME | creates a user with this username on startup | openvpn
 OPENVPN_UID | creates a user with this uid on startup | 500
 OPENVPN_GROUPNAME | creates a group with this name on startup | openvpn
