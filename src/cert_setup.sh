@@ -32,7 +32,7 @@ for ((certNumber=1; certNumber <= $CLIENT_CERTS; certNumber++)){
 cd keys;
 openvpn --genkey --secret ta.key;
 
-cp $SERVER_CN.crt $SERVER_CN.key ca.crt df*.pem ta.key crl.pem /etc/openvpn/server/
+cp $SERVER_CN.crt $SERVER_CN.key ca.crt dh*.pem ta.key crl.pem /etc/openvpn/server/
 
 if [ $CLIENT_CERTS > 0 ]; then
   mkdir -p /etc/openvpn/server/clients;
