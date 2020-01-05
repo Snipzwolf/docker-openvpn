@@ -1,13 +1,9 @@
-FROM ubuntu:xenial
+FROM arm32v6/alpine
 
 ENV DEBCONF_NONINTERACTIVE_SEEN="true" \
     DEBIAN_FRONTEND="noninteractive"
 
-RUN apt-get update -qq && \
-    apt-get install -qqy openvpn easy-rsa && \
-    apt-get -y autoremove && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --purge --no-cache -qf openvpn easy-rsa bash;
 
 ADD src/*.sh /opt/
 ADD src/server.conf /etc/openvpn/
